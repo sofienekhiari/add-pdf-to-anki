@@ -4,6 +4,7 @@ from uuid import uuid4
 import os
 import pathlib
 import PyPDF2
+import subprocess
 
 
 # Wrapper to catch errors in case commands not installed
@@ -13,12 +14,12 @@ def run_command(command):
         raise Exception(f"There was an error while running the following command: {command}")
 
 
-# Anki Connect Boilerplate
+# Anki Connect Boilerplate (1/2)
 def request(action, **params):
     return {'action': action, 'params': params, 'version': 6}
 
 
-# Anki Connect Boilerplate
+# Anki Connect Boilerplate (2/2)
 def invoke(action, **params):
     requestJson = json.dumps(request(action, **params)).encode('utf-8')
     response = json.load(urllib.request.urlopen(urllib.request.Request('http://localhost:8765', requestJson)))
@@ -59,7 +60,7 @@ def go_pta(deck_name, pdf_name):
     # Create the deck
     invoke('createDeck', deck=deck_name)
     # Create a temporary folder
-    tmp_folder = f"add-pta-{uuid4()}"
+    tmp_folder = f".add-pta-{uuid4()}"
     run_command(f"mkdir {tmp_folder}")
     # Get the number of pages in the PDF
     with open(pdf_name, 'rb') as pdf_file:
@@ -86,8 +87,11 @@ def go_pta(deck_name, pdf_name):
 
 
 # Get the name of the deck
-deck_name = input("Deck name: ")
+deck_name = subprocess.check_output('zenity --entry --text="Please enter the deck name:" --title="Add PDF to Anki" --width=900', shell=True, universal_newlines=True).strip()
+
 # Get the name of the PDF file
-pdf_name = input("PDF file name (with extension): ")
+pdf_name = subprocess.check_output('zenity --entry --text="Please enter the PDF file name (including the extension):" --title="Add PDF to Anki" --width=500', shell=True, universal_newlines=True).strip()
+
 # Create the flashcards
 go_pta(deck_name, pdf_name)
+run_command("notify-send 'The PDF was added successfully.'")
