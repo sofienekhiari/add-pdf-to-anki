@@ -11,10 +11,10 @@ You can install it using the following command.
 pip install streamlit
 ```
 
-To run the script, you can directly use the following command.
+To run the script, clone the repository and run the following command in the project folder:
 
 ```bash
-streamlit run https://raw.githubusercontent.com/sofienekhiari/add-pdf-to-anki/main/app.py
+streamlit run app.py
 ```
 
-The rest of the instructions are explained in the page that is opened in the default browser.
+The rest of the instructions are explained in the page that is opened in the default browser. Feel free to modify your local copy of the program to suit your workflow.
