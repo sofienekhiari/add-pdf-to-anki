@@ -1,3 +1,4 @@
+# pylint: disable=invalid-name
 """App that adds pdf files to Anki among other things"""
 
 import streamlit as st
@@ -6,7 +7,7 @@ from pta_processing import add_pta
 # Write the introduction text
 st.write(
     """
-# Add PDF file to Anki
+# Add PDF to Anki
 This script allows you to add a **PDF** file to **Anki** as a deck of cards.
 In this case, each card contains one page of the PDF file.
 The cards are _marked_ and _suspended_ by default.
