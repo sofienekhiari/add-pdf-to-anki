@@ -16,7 +16,7 @@ from wrappers import run_command
 # to better suit your preferences.
 NOTE_MODEL_NAME = "ClozeSK"
 EVALUATION_FIELD = "Evaluation"
-EVALUATION_TEMPLATE = "[[START]]<br>QUESTION<br>{{c1::ANSWER}}<br>[[END]]"
+EVALUATION_TEMPLATE = "[[START]]<br>QUESTION<br>{{c1::See notes}}<br>[[END]]<br><br>[[START]]<br>QUESTION<br>{{c1::See notes}}<br>[[END]]<br><br>[[START]]<br>QUESTION<br>{{c1::See notes}}<br>[[END]]<br><br>[[START]]<br>QUESTION<br>{{c1::See notes}}<br>[[END]]<br><br>[[START]]<br>QUESTION<br>{{c1::See notes}}<br>[[END]]"
 TAGS = ["marked"]
 NOTES_FIELD = "Notes"
 TEXT_FIELD = "Text"
