@@ -14,13 +14,13 @@ from wrappers import run_command
 # to better suit your preferences.
 NOTE_MODEL_NAME = "ClozeSK"
 EVALUATION_FIELD = "Evaluation"
-EVALUATION_TEMPLATE = "<b>NOTA BENE: Don't forget to replace '--' by '::' for every card you want to create!</b><br><br>[[ QUESTION<br>{{c1::ANSWER}} ]]<br><br>[[ QUESTION<br>{{c2--ANSWER}} ]]<br><br>[[ QUESTION<br>{{c3--ANSWER}} ]]<br><br>[[ QUESTION<br>{{c4--ANSWER}} ]]<br><br>[[ QUESTION<br>{{c5--ANSWER}} ]]<br><br>[[ QUESTION<br>{{c6--ANSWER}} ]]<br><br>[[ QUESTION<br>{{c7--ANSWER}} ]]<br><br>[[ QUESTION<br>{{c8--ANSWER}} ]]<br><br>[[ QUESTION<br>{{c9--ANSWER}} ]]<br><br>[[ QUESTION<br>{{c10--ANSWER}} ]]"
+EVALUATION_TEMPLATE = "[[START]]<br>QUESTION<br>{{c1::ANSWER}}<br>[[END]]"
 TAGS = ["marked"]
 NOTES_FIELD = "Notes"
 TEXT_FIELD = "Text"
 
 def add_pta_note(deck_name, slide_path, slide_text):
-    """Create a single PTA note"""    
+    """Create a single PTA note"""
     # Create the basic structure for the note
     pta_note = {
         "deckName": deck_name,
