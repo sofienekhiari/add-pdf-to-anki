@@ -41,7 +41,7 @@ def add_pta_note(deck_name, slide_path, slide_text):
     invoke("addNote", note=pta_note)
 
 
-def add_pta(deck_name, pdf_full_path):
+def add_pta(deck_name, pdf_full_path, extract_text):
     """Add a PTA file"""
     # Add a message that the script is running
     st.write(
@@ -66,9 +66,12 @@ def add_pta(deck_name, pdf_full_path):
         # Set the PDF page number
         pdf_page_nb = pdf_page_index + 1
         # Extract the text from the PDF page
-        with open(pdf_full_path, "rb") as pdf_file:
-            pdf_read = PyPDF2.PdfFileReader(pdf_file)
-            slide_text = pdf_read.pages[pdf_page_index].extract_text()
+        if extract_text:
+            with open(pdf_full_path, "rb") as pdf_file:
+                pdf_read = PyPDF2.PdfFileReader(pdf_file)
+                slide_text = pdf_read.pages[pdf_page_index].extract_text()
+        else:
+            slide_text = ""
         # Create the PDF page
         run_command(
             f"cd {tmp_folder} && pdftoppm '{pdf_full_path}' pta -png -progress -f {pdf_page_nb} -l {pdf_page_nb}"

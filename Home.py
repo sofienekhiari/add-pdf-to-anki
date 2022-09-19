@@ -30,9 +30,10 @@ with st.form("pta-form"):
     pdf_full_path = st.text_area(
         "File Full Path", help="The full path must include the file name and extension."
     )
+    extract_text = st.checkbox("Extract text")
     st.write("_Please verify the entered information before running the script._")
     submitted = st.form_submit_button("Add file to Anki")
 
 # Run the script on submission
 if submitted:
-    add_pta(deck_name, pdf_full_path)
+    add_pta(deck_name, pdf_full_path, extract_text)
