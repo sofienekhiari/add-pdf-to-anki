@@ -88,10 +88,10 @@ def add_pta(deck_name, pdf_full_path, extract_text):
     # Delete the temporary folder
     run_command(f"rm -rf {tmp_folder}")
     # Suspend cards
-    with st.spinner("Suspending newly created cards..."):
+    # with st.spinner("Suspending newly created cards..."):
         # Get the cards ids
-        cards_ids = invoke("findCards", query=f'"deck:{deck_name}"')
+        # cards_ids = invoke("findCards", query=f'"deck:{deck_name}"')
         # Suspend the cards by their ids
-        invoke("suspend", cards=cards_ids)
+        # invoke("suspend", cards=cards_ids)
     # Print a success message
     st.success("File added!")
