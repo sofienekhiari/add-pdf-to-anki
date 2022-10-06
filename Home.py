@@ -16,7 +16,7 @@ That way, they are not taken into account in the study routine until they are ed
 )
 
 # Create the form
-with st.form("pta-form"):
+with st.form("pta-form", clear_on_submit=True):
     st.write(
         """
     ### Data entry
