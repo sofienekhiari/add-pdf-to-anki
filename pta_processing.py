@@ -16,7 +16,6 @@ from wrappers import run_command
 # to better suit your preferences.
 NOTE_MODEL_NAME = "ClozeSK"
 EVALUATION_FIELD = "Evaluation"
-EVALUATION_TEMPLATE = "[[START]]<br>QUESTION<br>{{c1::See notes}}<br>[[END]]<br><br>[[START]]<br>QUESTION<br>{{c1::See notes}}<br>[[END]]<br><br>[[START]]<br>QUESTION<br>{{c1::See notes}}<br>[[END]]<br><br>[[START]]<br>QUESTION<br>{{c1::See notes}}<br>[[END]]<br><br>[[START]]<br>QUESTION<br>{{c1::See notes}}<br>[[END]]"
 TAGS = ["marked"]
 NOTES_FIELD = "Notes"
 TEXT_FIELD = "Text"
@@ -24,6 +23,10 @@ TEXT_FIELD = "Text"
 
 def add_pta_note(deck_name, slide_path, slide_text):
     """Create a single PTA note"""
+    # Create the evaluation template
+    EVALUATION_TEMPLATE = ""
+    for index in range(20):
+        EVALUATION_TEMPLATE += f"[[START]]<br>QUESTION<br>{{{{c{index+1}::See notes}}}}<br>[[END]]<br><br>"
     # Create the basic structure for the note
     pta_note = {
         "deckName": deck_name,
