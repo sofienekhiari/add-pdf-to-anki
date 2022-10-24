@@ -26,7 +26,7 @@ def add_pta_note(deck_name, slide_path, slide_text):
     # Create the evaluation template
     EVALUATION_TEMPLATE = ""
     for index in range(20):
-        EVALUATION_TEMPLATE += f"[[START]]<br>QUESTION<br>{{{{c{index+1}::See notes}}}}<br>[[END]]<br><br>"
+        EVALUATION_TEMPLATE += f"[[START]]<br>QUESTION<br>{{{{c{index+1}::→ See slide(s) | NOTES<br>[[FA]]TODO[[/FA]]}}}}<br>[[END]]<br><br>"
     # Create the basic structure for the note
     pta_note = {
         "deckName": deck_name,
