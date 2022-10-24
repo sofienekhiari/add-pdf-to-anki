@@ -14,7 +14,7 @@ from wrappers import run_command
 # The following parameters are the author's
 # default preferences. You can change them
 # to better suit your preferences.
-NOTE_MODEL_NAME = "ClozeSK"
+NOTE_MODEL_NAME = "Pydeska"
 EVALUATION_FIELD = "Evaluation"
 TAGS = ["marked"]
 NOTES_FIELD = "Notes"
